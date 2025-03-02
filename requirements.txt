@@ -3,3 +3,4 @@ gunicorn
 selenium
 webdriver-manager
 chromedriver-autoinstaller
+waitress
