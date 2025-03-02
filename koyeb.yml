@@ -1,8 +1,0 @@
-name: leadsfrombrowser
-type: web
-build:
-  buildpacks:
-    - heroku/nodejs
-  command: npm install && npm start
-run:
-  command: npm start
