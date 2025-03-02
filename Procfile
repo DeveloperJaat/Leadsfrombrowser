@@ -1,1 +1,1 @@
-web: ./install_chrome.sh && python app.py
+web: bash start.sh && python app.py
