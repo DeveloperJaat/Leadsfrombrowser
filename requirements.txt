@@ -2,4 +2,5 @@ Flask
 gunicorn
 selenium
 webdriver-manager
-undetected-chromedriver
+chromedriver-autoinstaller
+waitress
