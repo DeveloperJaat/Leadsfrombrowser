@@ -2,10 +2,15 @@ from flask import Flask, request, jsonify
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
+import os
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 
 app = Flask(__name__)
+
+# Ensure Chrome is installed
+CHROME_PATH = "/usr/bin/google-chrome"
+CHROMEDRIVER_PATH = "/usr/bin/chromedriver"
 
 # Function to initialize Selenium WebDriver
 def init_driver():
@@ -13,8 +18,9 @@ def init_driver():
     options.add_argument("--headless")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
+    options.binary_location = CHROME_PATH  # Explicitly set Chrome binary location
 
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver = webdriver.Chrome(service=Service(CHROMEDRIVER_PATH), options=options)
     return driver
 
 # Google Search Function
