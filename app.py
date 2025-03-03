@@ -15,12 +15,13 @@ CHROMEDRIVER_PATH = "/usr/bin/chromedriver"
 # Function to initialize Selenium WebDriver
 def init_driver():
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless")
+    options.add_argument("--headless")  # GUI disabled mode
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
-    options.binary_location = CHROME_PATH  # Explicitly set Chrome binary location
 
-    driver = webdriver.Chrome(service=Service(CHROMEDRIVER_PATH), options=options)
+    # Automatically download and use the latest ChromeDriver
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=options)
     return driver
 
 # Google Search Function
